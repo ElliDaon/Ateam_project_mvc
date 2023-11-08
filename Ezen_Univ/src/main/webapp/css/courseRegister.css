@@ -48,7 +48,7 @@
     border: 1px solid gray;
 }
 .details_first_line{
-   margin-top: 5px;
+	margin-top: 5px;
     padding: 10px;
     display: block;
     background: rgb(194, 194, 255);
@@ -63,9 +63,9 @@
 }
 
 .register td {
-   border-collapse: collapse;
-   border : 2px solid #e6eef5;
-   }
+	border-collapse: collapse;
+	border : 2px solid #e6eef5;
+	}
 
 .register input[type=text]{ 
     flex-grow: 1;
@@ -79,7 +79,7 @@
 
 
 input[type=button] { 
-   border: white solid 2px;
+	border: white solid 2px;
     background-color: #0078ff;
     color: #fff;
     font-weight : bold ;
@@ -90,8 +90,3 @@ input[type=button] {
     justify-content: center;
 }
 
-
-
-
-
-edit
