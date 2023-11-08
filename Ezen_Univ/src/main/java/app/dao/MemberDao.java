@@ -3,6 +3,7 @@ package app.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import app.dbconn.DbConn;
@@ -205,5 +206,51 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 		return value;
+	}
+	public MemberVo studentSidxSearch(String s_id) {
+		MemberVo mv = new MemberVo();
+		
+		String sql = "select sidx, s_no, s_name, s_major from student where s_id=?";
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, s_id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				mv.setSidx(rs.getInt("sidx"));
+				mv.setS_no(rs.getInt("s_no"));
+				mv.setS_name(rs.getString("s_name"));
+				mv.setS_major(rs.getString("s_major"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+				
+		return mv;
+	}
+	public MemberVo professorPidxSearch(String p_id) {
+		MemberVo mv = new MemberVo();
+		
+		String sql = "select pidx, p_no, p_name, p_major from professor where p_id=?";
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, p_id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				mv.setPidx(rs.getInt("pidx"));
+				mv.setP_no(rs.getInt("p_no"));
+				mv.setP_name(rs.getString("p_name"));
+				mv.setP_major(rs.getString("p_major"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return mv;
 	}
 }

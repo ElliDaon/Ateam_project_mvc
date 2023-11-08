@@ -1,6 +1,6 @@
 package app.domain;
 
-public class CourseVo {
+public class CourseVo extends CourseTimeVo {
 	private int cidx;
 	private int pidx;
 	private String c_name;
@@ -9,6 +9,7 @@ public class CourseVo {
 	private int c_score;
 	private int c_totaltime;
 	private String c_sep;
+	
 	public int getCidx() {
 		return cidx;
 	}
