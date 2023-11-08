@@ -123,7 +123,7 @@ public class MemberController extends HttpServlet {
 			session.removeAttribute("midx");
 			session.invalidate(); //초기화
 			
-			response.sendRedirect(request.getContextPath()+"/");
+			response.sendRedirect(request.getContextPath()+"/index.jsp");
 			
 		}else if(location.equals("studentLoginAction.do")) {
 			
@@ -137,9 +137,18 @@ public class MemberController extends HttpServlet {
 			if (midx!=0){ //아이디비번 일치
 				//세션에 회원 아이디를 담는다
 				HttpSession session = request.getSession();
-				session.setAttribute("memberId", s_id);
-				session.setAttribute("midx", midx);
+				MemberVo mv = new MemberVo();
 				
+				mv = md.studentSidxSearch(s_id);
+				System.out.println(mv);
+				System.out.println(mv.getS_name());
+				
+				session.setAttribute("sidx", mv.getSidx());
+				session.setAttribute("s_no", mv.getS_no());
+				session.setAttribute("s_name", mv.getS_name());
+				session.setAttribute("s_major", mv.getS_major());
+				
+				System.out.println(session.getAttribute("s_no"));
 				response.sendRedirect(request.getContextPath()+"/main/main_s.jsp");
 				
 			}else{//아이디 비번 불일치
@@ -160,11 +169,16 @@ public class MemberController extends HttpServlet {
 			MemberDao md = new MemberDao();
 			int pidx = 0;
 			pidx = md.professorLoginCheck(p_id, p_pwd);
-			if (pidx!=0){ //아이디비번 일치
-				//세션에 회원 아이디를 담는다
+			if (pidx!=0){ 
+				
 				HttpSession session = request.getSession();
-				session.setAttribute("p_id", p_id);
-				session.setAttribute("pidx", pidx);
+				MemberVo mv = new MemberVo();
+				
+				mv = md.professorPidxSearch(p_id);
+				session.setAttribute("pidx", mv.getPidx());
+				session.setAttribute("p_no", mv.getP_no());
+				session.setAttribute("p_name", mv.getP_name());
+				session.setAttribute("p_major", mv.getP_major());
 				
 				response.sendRedirect(request.getContextPath()+"/main/main_p.jsp");
 				
@@ -176,6 +190,9 @@ public class MemberController extends HttpServlet {
 				out.println("<script>location.href='../index.jsp';</script>");
 				//response.sendRedirect("./main/main_s.do");
 			}
+			
+		}else if(location.equals("studentState.do")) {
+			MemberDao md = new MemberDao();
 			
 		}
 	}
