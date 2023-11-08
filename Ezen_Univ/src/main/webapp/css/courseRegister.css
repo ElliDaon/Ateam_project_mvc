@@ -1,18 +1,3 @@
-.container{
-    display: flex;
-}
-.sidebar{
-    width: 50%;
-}
-.myinfo{
-    width: 100%;
-}
-.menubar{
-    width: 100%;
-}
-.contents{
-    padding: 20px;
-}
 .first_line{
     padding: 10px;
     display: block;
@@ -70,5 +55,41 @@
 }
 .details_first_line input{
     width: 80px;
+}
+
+.register table{
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+
+.inputbox {
+	border : 1px solid white;
+	junstify-content : left;
+}
+.register input[type=text]{ 
+    flex-grow: 1;
+    padding: 7px 5px;
+    border: #e6eef5 solid 2px;
+    background-color: #fbfbfd;
+    color: #263747;
+    width : 70%;
+    font-size: 15px;
+}
+
+input[type=button] { 
+	border: white solid 2px;
+    background-color: #0078ff;
+    color: #fff;
+    height : 30px;
+    font-weight : bold ;
+    font-size : 15px;
+    cursor: pointer;
+    width: 50px;
+    justify-content: center;
 }
 

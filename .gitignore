@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/java,windows,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,windows,eclipse
 
+DbConn.java
+
 ### Eclipse ###
 .metadata
 bin/
@@ -13,6 +15,13 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+
+# Eclipse Core       
+.project 
+
+
+# JDT-specific (Eclipse Java Development Tools)      
+.classpath
 
 # External tool builders
 .externalToolBuilders/
@@ -120,3 +129,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/java,windows,eclipse
+/build/
