@@ -21,7 +21,6 @@
         </div>
         <div class="contents">
             <div class="first-line">
-            
                 <div class="notice">
                     <h3>휴보강공지</h3><br>
                     <table>
